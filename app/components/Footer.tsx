@@ -30,9 +30,9 @@ export default function Footer() {
               <Image
                 src="/images/logoo.jpeg"
                 alt="Alta Vision"
-                width={150}
-                height={60}
-                className="h-16 w-auto"
+                width={300}
+                height={120}
+                className="h-28 w-auto"
               />
             </div>
             <p className="text-white/80 mb-4">
