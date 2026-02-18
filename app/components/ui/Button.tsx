@@ -7,6 +7,7 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 export default function Button({ 
@@ -14,7 +15,8 @@ export default function Button({
   variant = 'primary', 
   href, 
   onClick,
-  className = '' 
+  className = '',
+  disabled = false
 }: ButtonProps) {
   const baseStyles = "px-8 py-3 rounded-md font-medium transition-all duration-300 inline-block text-center";
   
@@ -24,15 +26,17 @@ export default function Button({
     ghost: "border-2 border-teal text-teal hover:bg-teal hover:text-white"
   };
 
+  const disabledStyles = disabled ? "opacity-50 cursor-not-allowed" : "";
+
   const Component = href ? motion.a : motion.button;
-  const props = href ? { href } : { onClick };
+  const props = href ? { href } : { onClick, disabled };
 
   return (
     <Component
       {...props}
-      className={`${baseStyles} ${variants[variant]} ${className}`}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
+      className={`${baseStyles} ${variants[variant]} ${disabledStyles} ${className}`}
+      whileHover={disabled ? {} : { scale: 1.02 }}
+      whileTap={disabled ? {} : { scale: 0.98 }}
     >
       {children}
     </Component>
