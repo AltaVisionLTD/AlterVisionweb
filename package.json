@@ -10,10 +10,10 @@
   "dependencies": {
     "@next/third-parties": "^16.0.0",
     "framer-motion": "^12.34.2",
-    "next": "15.5.4",
+    "next": "^16.1.6",
     "nodemailer": "^7.0.6",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.02.4",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
