@@ -15,25 +15,25 @@ const geistMono = Geist_Mono({
 
 // SEO & Metadata
 export const metadata: Metadata = {
-  title: "Beyond Tech | Transforming Businesses",
-  description: "Beyond Tech is a leading technology partner offering scalable, high-performance software solutions, user-centered design, and expert consulting to empower businesses and individuals with innovative technology.",
+  title: "Alta Vision | Engineering Scalable Products That Create Real Impact",
+  description: "Alta Vision is a product-led software studio designing, building, and scaling reliable digital systems. We partner with startups, growing businesses, and organizations to engineer production-ready solutions.",
   keywords: [
-    "Beyond Tech", "Technology Solutions", "Software Development", "UI/UX Design",
-    "Mobile Development", "Web Development", "Consulting", "Business Transformation",
-    "Tech Partner", "Cutting-edge Technology", "Digital Innovation"
+    "Alta Vision", "Software Studio", "Product Engineering", "Software Development",
+    "Scalable Systems", "Digital Transformation", "MVP Development", "Technical Architecture",
+    "Construction Technology", "INKINGI", "Africa Software Company"
   ],
-  authors: [{ name: "Beyond Tech Team", url: "https://yourdomain.com" }],
+  authors: [{ name: "Alta Vision Team", url: "https://altavision.com" }],
   openGraph: {
-    title: "Beyond Tech | Transforming Businesses",
-    description: "Cutting-edge solutions, software development, and digital transformation for businesses and individuals.",
-    url: "https://yourdomain.com",
-    siteName: "Beyond Tech",
+    title: "Alta Vision | Engineering Scalable Products That Create Real Impact",
+    description: "Product-led software studio designing, building, and scaling reliable digital systems with security, scalability, and long-term architecture in mind.",
+    url: "https://altavision.com",
+    siteName: "Alta Vision",
     images: [
       {
-        url: "/og-image.jpg", // Place your Open Graph image in /public
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Beyond Tech - Leading Technology Partner",
+        alt: "Alta Vision - Engineering Excellence",
       }
     ],
     locale: "en_US",
@@ -41,13 +41,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Beyond Tech | Transforming Businesses",
-    description: "Beyond Tech empowers businesses with high-performance technology solutions and consulting. A software company that is based in Rwanda, Kigali. We provide services like software development, UI/UX design, mobile development, and training. the best software company in Rwanda. Contact us for innovative tech solutions.",
-    site: "@beyondtech",
-    creator: "@beyondtech",
+    title: "Alta Vision | Engineering Scalable Products",
+    description: "Product-led software studio building reliable digital systems. Engineering Your Vision into Reality.",
+    site: "@altavision",
+    creator: "@altavision",
     images: ["/og-image.jpg"],
   },
- 
   robots: {
     index: true,
     follow: true,
@@ -74,7 +73,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-export const themeColor = "#F6A019";
+export const themeColor = "#0E2A28";
 
 export default function RootLayout({
   children,
@@ -84,83 +83,55 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Beyond Tech",
-    "alternateName": "BeyondTech",
-    "url": "https://yourdomain.com",
-    "logo": "https://yourdomain.com/images/logoo.png",
-    "description": "Leading technology partner in Rwanda offering software development, UI/UX design, mobile development, and consulting services.",
+    "name": "Alta Vision",
+    "alternateName": "Alta Vision Studio",
+    "url": "https://altavision.com",
+    "logo": "https://altavision.com/logo.png",
+    "description": "Product-led software studio engineering scalable, secure, and reliable digital systems for startups, growing businesses, and organizations.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kigali",
-      "addressLocality": "Kigali",
-      "addressRegion": "Kigali City",
-      "addressCountry": "RW"
+      "addressRegion": "Africa",
+      "addressCountry": "Global"
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+250781274642",
-      "contactType": "Customer Service",
-      "email": "beyondtech@gmail.com",
-      "availableLanguage": ["English", "French", "Kinyarwanda"]
+      "contactType": "Business Inquiries",
+      "email": "info@altavision.com",
+      "availableLanguage": ["English", "French"]
     },
     "sameAs": [
-      "https://twitter.com/beyondtech",
-      "https://www.linkedin.com/company/beyondtech",
-      "https://www.instagram.com/beyondtech"
+      "https://twitter.com/altavision",
+      "https://www.linkedin.com/company/altavision",
+      "https://github.com/altavision"
     ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "Rwanda"
-    },
+    "areaServed": "Global",
     "serviceType": [
-      "Software Development",
-      "Web Development",
-      "Mobile App Development",
-      "UI/UX Design",
-      "Technology Consulting",
-      "Testing Services"
+      "Product Strategy & Architecture",
+      "Custom Software Development",
+      "Web & Mobile Applications",
+      "Digital Transformation",
+      "Technical Consulting"
     ]
   };
 
   const localBusinessData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Beyond Tech",
-    "image": "https://yourdomain.com/images/logoo.png",
-    "@id": "https://yourdomain.com",
-    "url": "https://yourdomain.com",
-    "telephone": "+250781274642",
-    "email": "beyondtech@gmail.com",
-    "priceRange": "$100-$200",
+    "@type": "ProfessionalService",
+    "name": "Alta Vision",
+    "image": "https://altavision.com/logo.png",
+    "@id": "https://altavision.com",
+    "url": "https://altavision.com",
+    "email": "info@altavision.com",
+    "priceRange": "Contact for pricing",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kigali",
-      "addressLocality": "Kigali",
-      "addressRegion": "Kigali City",
-      "postalCode": "",
-      "addressCountry": "RW"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -1.9441,
-      "longitude": 30.0619
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "08:00",
-      "closes": "18:00"
+      "addressRegion": "Africa",
+      "addressCountry": "Global"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "reviewCount": "50"
+      "ratingValue": "5.0",
+      "reviewCount": "25"
     }
   };
 
@@ -170,7 +141,7 @@ export default function RootLayout({
         {/* Extra meta tags for SEO and accessibility */}
         <meta name="google" content="notranslate" />
         <meta name="format-detection" content="telephone=no" />
-        <link rel="canonical" href="https://yourdomain.com" />
+        <link rel="canonical" href="https://altavision.com" />
         
         {/* Structured Data */}
         <script

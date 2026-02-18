@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root{
-  --brand-primary: #E69A2B;
-  --brand-accent: #00A86B;
-  --bg: #F6F6F6;
+  --teal: #0E2A28;
+  --gold: #D79A2E;
+  --neutral-white: #F9FAF8;
+  --neutral-grey: #E6E8E7;
+  --neutral-dark: #1A1A1A;
 }
 
 html,body,#__next{height:100%;}
-body{background-color:var(--bg);color:#0b0b0b}
+body{background-color:var(--neutral-white);color:var(--neutral-dark)}
 
 .container-max{max-width:1200px;margin-inline:auto}

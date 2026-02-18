@@ -17,11 +17,18 @@ const config: Config = {
         '3xl': '1600px',
       },
       colors: {
-        primary: {
-          50: '#eff6ff',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
+        teal: {
+          DEFAULT: '#0E2A28',
+          dark: '#0A1F1E',
+        },
+        gold: {
+          DEFAULT: '#D79A2E',
+          light: '#E0A940',
+        },
+        neutral: {
+          white: '#F9FAF8',
+          grey: '#E6E8E7',
+          dark: '#1A1A1A',
         },
       },
       fontFamily: {
