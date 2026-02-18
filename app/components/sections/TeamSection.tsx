@@ -3,13 +3,20 @@
 import Container from '../ui/Container';
 import SectionTitle from '../ui/SectionTitle';
 import Card from '../ui/Card';
+import Image from 'next/image';
 
 export default function TeamSection() {
   const team = [
-    { name: 'John Doe', role: 'CEO & Co-Founder' },
-    { name: 'Jane Smith', role: 'CTO & Co-Founder' },
-    { name: 'Mike Johnson', role: 'Lead Engineer' },
-    { name: 'Sarah Williams', role: 'Product Designer' },
+    { 
+      name: 'IHIRWE SHINGIRO Irene Arthur', 
+      role: 'CEO & Founder',
+      image: '/images/team/Arthur.jpeg'
+    },
+    { 
+      name: 'IMANIRAHARI Didier', 
+      role: 'CTO & Co-Founder',
+      image: '/images/team/Didier.jpeg'
+    },
   ];
 
   return (
@@ -19,12 +26,18 @@ export default function TeamSection() {
           Our Team
         </SectionTitle>
 
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {team.map((member, index) => (
             <Card key={index}>
               <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-4 bg-neutral-grey rounded-full flex items-center justify-center text-teal text-4xl font-bold">
-                  {member.name.split(' ').map(n => n[0]).join('')}
+                <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={128}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h4 className="text-xl font-bold text-teal mb-1">
                   {member.name}
