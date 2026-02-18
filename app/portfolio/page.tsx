@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import WhatsAppButton from "../components/WhatsAppButton";
 import { FaCheckCircle, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const projects = [
@@ -25,7 +24,7 @@ const projects = [
     ],
     technologies: ["Flutter", "Node.js", "MongoDB", "Firebase", "Twilio API"],
     testimonial: {
-      text: "Beyond Tech transformed our vision into reality. The app has revolutionized how farmers in Rwanda access markets.",
+      text: "Alta Vision transformed our vision into reality. The app has revolutionized how farmers in Rwanda access markets.",
       author: "Marie Uwase",
       position: "Founder, AgriTech Rwanda"
     }
@@ -264,7 +263,6 @@ export default function PortfolioPage() {
       </main>
 
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

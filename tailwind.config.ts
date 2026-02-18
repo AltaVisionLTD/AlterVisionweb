@@ -18,15 +18,15 @@ const config: Config = {
       },
       colors: {
         teal: {
-          DEFAULT: '#0E2A28',
-          dark: '#0A1F1E',
+          DEFAULT: '#063A33',
+          dark: '#0B2B26',
         },
         gold: {
-          DEFAULT: '#D79A2E',
+          DEFAULT: '#D5962B',
           light: '#E0A940',
         },
         neutral: {
-          white: '#F9FAF8',
+          white: '#F2F2F2',
           grey: '#E6E8E7',
           dark: '#1A1A1A',
         },

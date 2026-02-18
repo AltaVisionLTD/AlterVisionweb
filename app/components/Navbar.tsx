@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Container from './ui/Container';
 import Button from './ui/Button';
 
@@ -35,12 +36,20 @@ export default function Navbar() {
     >
       <Container>
         <div className="flex justify-between items-center py-4">
-          <motion.div
-            className="text-2xl font-bold text-teal"
+          <motion.a
+            href="#home"
+            className="flex items-center"
             whileHover={{ scale: 1.05 }}
           >
-            Alta Vision
-          </motion.div>
+            <Image
+              src="/images/logoo.jpeg"
+              alt="Alta Vision - Engineering Scalable Products"
+              width={120}
+              height={50}
+              className="h-12 w-auto"
+              priority
+            />
+          </motion.a>
 
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (

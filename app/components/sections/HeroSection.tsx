@@ -1,34 +1,39 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
+import ConsultationModal from './ConsultationModal';
 
 export default function HeroSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <section id="home" className="min-h-[90vh] flex items-center pt-20 bg-neutral-white">
-      <Container>
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-teal mb-6 leading-tight">
-              Engineering Scalable Products That Create Real Impact.
-            </h1>
-            <p className="text-xl text-neutral-dark/80 mb-8 max-w-xl">
-              Alta Vision is a product-led software studio designing, building, and scaling reliable digital systems.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="primary" href="#services">
-                Explore Our Services
-              </Button>
-              <Button variant="ghost" href="#products">
-                View Our Products
-              </Button>
-            </div>
-          </motion.div>
+    <>
+      <section id="home" className="min-h-[90vh] flex items-center pt-20 bg-neutral-white">
+        <Container>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-teal mb-6 leading-tight">
+                Engineering Scalable Products That Create Real Impact.
+              </h1>
+              <p className="text-xl text-neutral-dark/80 mb-8 max-w-xl">
+                Alta Vision is a product-led software studio designing, building, and scaling reliable digital systems.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+                  Book Free Consultation
+                </Button>
+                <Button variant="ghost" href="#products">
+                  View Our Products
+                </Button>
+              </div>
+            </motion.div>
 
           <motion.div
             className="relative h-96 md:h-[500px]"
@@ -80,5 +85,8 @@ export default function HeroSection() {
         </div>
       </Container>
     </section>
+
+    <ConsultationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }

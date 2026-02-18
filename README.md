@@ -1,41 +1,49 @@
-# Beyond Tech - Company Website
+# Alta Vision - Engineering Your Vision into Reality
 
-A modern, professional website for Beyond Tech, Rwanda's leading technology partner offering cutting-edge software solutions, UI/UX design, and consulting services.
+A modern, premium website for Alta Vision, a product-led software studio designing, building, and scaling reliable digital systems. The site reflects engineering maturity, long-term vision, and credibility.
+
+## 🎯 Brand Identity
+
+- **Primary Color:** Deep Teal (#063A33) - Structural backgrounds and headings
+- **Accent Color:** Premium Gold (#D5962B) - CTAs and highlights only (sparingly used)
+- **Dark Variant:** Deep Green (#0B2B26) - Text and contrast
+- **Background:** Soft Neutral (#F2F2F2) - Clean breathing space
+
+**Design Philosophy:** Premium minimalism. Whitespace > decoration. This is a confident engineering brand, not a flashy startup.
 
 ## 🚀 Features
 
-### ✅ Implemented Features
+### ✅ Core Features
 
-- **Fully Responsive Design** - Mobile-first approach with hamburger menu
-- **WhatsApp Integration** - Floating button for instant communication
-- **Free Consultation Modal** - Lead capture system with email automation
-- **Testimonials Carousel** - Client reviews with navigation
-- **FAQ Section** - Accordion-style frequently asked questions
-- **Rwanda Trust Signals** - Local presence, payment methods (MTN/Airtel Money)
-- **Portfolio/Case Studies** - Detailed project showcase page
-- **Newsletter System** - Email subscription with welcome automation
-- **Client Logos Showcase** - Animated scrolling client logos
-- **SEO Optimized** - Schema.org structured data, meta tags
-- **Google Analytics** - GA4 integration ready
-- **Contact Form** - Email integration with Nodemailer
+- **Free Consultation Booking** - Integrated modal with date/time selection
+- **Web3Forms Email Service** - Free, reliable email delivery (3000/month)
+- **Responsive Design** - Mobile-first with elegant desktop experience
+- **Logo Integration** - Alta Vision branding throughout
+- **SEO Optimized** - Meta tags, structured data, OpenGraph
+- **Performance Optimized** - Fast load times, minimal heavy images
+- **Netlify Ready** - Static deployment optimized
 
-### 🎨 Design Features
+### 📄 Homepage Sections
 
-- Modern gradient backgrounds
-- Smooth animations and transitions
-- Consistent brand colors (#F6A019 orange, #27B755 green)
-- Professional typography (Geist fonts)
-- Accessible and user-friendly interface
+1. **Hero Section** - Two-column with geometric animations + "Book Free Consultation" CTA
+2. **Who We Are** - Engineering philosophy and studio identity
+3. **Mission/Vision/Principles** - Core values with icon grid
+4. **Who We Work With** - Three audience segments (Startups, Growing Businesses, Organizations)
+5. **Services** - 2x2 grid of service offerings
+6. **Products/Labs** - Featured: INKINGI construction platform
+7. **Team Section** - Clean grid of team members
+8. **CTA Section** - Full-width conversion moment
+9. **Contact Section** - Integrated contact form
 
 ## 🛠️ Tech Stack
 
-- **Framework:** Next.js 15.5.4 (with Turbopack)
+- **Framework:** Next.js 15.5.4 (App Router)
 - **UI Library:** React 19.1.0
 - **Styling:** Tailwind CSS v4
 - **Language:** TypeScript 5
+- **Animation:** Framer Motion 12.34.2
 - **Icons:** React Icons 5.5.0
-- **Email:** Nodemailer 7.0.6
-- **Analytics:** @next/third-parties/google
+- **Email:** Web3Forms API (free, static-friendly)
 - **Fonts:** Geist Sans & Geist Mono
 
 ## 📦 Installation
@@ -43,7 +51,7 @@ A modern, professional website for Beyond Tech, Rwanda's leading technology part
 1. **Clone the repository**
 ```bash
 git clone <repository-url>
-cd beyondteck
+cd AlterVisionweb
 ```
 
 2. **Install dependencies**
@@ -56,20 +64,16 @@ npm install
 Create a `.env.local` file in the root directory:
 
 ```env
-# Gmail Configuration for Email Services
-NEXT_PUBLIC_GMAIL_USER=your-email@gmail.com
-NEXT_PUBLIC_GMAIL_PASS=your-app-specific-password
-
-# Google Analytics (Optional)
-# Replace G-XXXXXXXXXX in layout.tsx with your GA4 ID
+# Web3Forms Access Key (Free - Sign up at https://web3forms.com)
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key_here
 ```
 
-**To get Gmail App Password:**
-1. Go to your Google Account settings
-2. Enable 2-Factor Authentication
-3. Go to Security > App Passwords
-4. Generate a new app password for "Mail"
-5. Use this password in your `.env.local`
+**To get Web3Forms Access Key:**
+1. Go to [https://web3forms.com](https://web3forms.com)
+2. Sign up for free (no credit card required)
+3. Create a new form
+4. Copy your access key
+5. Paste into `.env.local`
 
 4. **Run the development server**
 ```bash
@@ -81,100 +85,66 @@ Open [http://localhost:3000](http://localhost:3000) to see the website.
 ## 📄 Project Structure
 
 ```
-beyondteck/
+AlterVisionweb/
 ├── app/
 │   ├── api/
 │   │   ├── contact/route.ts          # Contact form API
 │   │   ├── consultation/route.ts     # Consultation booking API
 │   │   └── newsletter/route.ts       # Newsletter subscription API
 │   ├── components/
-│   │   ├── AboutSection.tsx
-│   │   ├── ClientLogosSection.tsx    # Client logos carousel
-│   │   ├── ConsultationModal.tsx     # Free consultation modal
-│   │   ├── ContactSection.tsx
-│   │   ├── FAQSection.tsx            # FAQ accordion
-│   │   ├── Footer.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Navbar.tsx                # Mobile-responsive navbar
-│   │   ├── ServiceModal.tsx
-│   │   ├── StatsSection.tsx
-│   │   ├── TestimonialsSection.tsx   # Client testimonials
-│   │   ├── TrustSignalsSection.tsx   # Rwanda-specific content
-│   │   ├── WhatDriverUs.tsx
-│   │   ├── WhatWeOffer.tsx
-│   │   └── WhatsAppButton.tsx        # Floating WhatsApp button
-│   ├── portfolio/
-│   │   └── page.tsx                  # Portfolio page
-│   ├── globals.css
-│   ├── layout.tsx                    # Root layout with SEO
-│   └── page.tsx                      # Home page
+│   │   ├── Navbar.tsx                # Sticky navigation with logo
+│   │   ├── Footer.tsx                # Footer with logo and links
+│   │   ├── sections/
+│   │   │   ├── HeroSection.tsx       # Hero with consultation CTA
+│   │   │   ├── WhoWeAreSection.tsx
+│   │   │   ├── MissionVisionSection.tsx
+│   │   │   ├── WhoWeWorkWithSection.tsx
+│   │   │   ├── ServicesSection.tsx
+│   │   │   ├── ProductsSection.tsx
+│   │   │   ├── TeamSection.tsx
+│   │   │   ├── CTASection.tsx        # CTA with consultation modal
+│   │   │   ├── ContactSection.tsx
+│   │   │   └── ConsultationModal.tsx # Free consultation booking
+│   │   └── ui/
+│   │       ├── Button.tsx            # Reusable button component
+│   │       ├── Card.tsx              # Reusable card component
+│   │       ├── Badge.tsx             # Status badges
+│   │       ├── SectionTitle.tsx      # Consistent section headers
+│   │       └── Container.tsx         # Max-width wrapper
+│   ├── lib/
+│   │   └── email.ts                  # Web3Forms email service
+│   ├── globals.css                   # Global styles & CSS variables
+│   ├── layout.tsx                    # Root layout with metadata
+│   └── page.tsx                      # Homepage
 ├── public/
-│   └── images/                       # Website images
-├── package.json
-├── tailwind.config.ts
-└── tsconfig.json
+│   └── images/
+│       ├── logoo.jpeg                # Alta Vision logo
+│       └── team/                     # Team photos
+├── .env.example                      # Environment variables template
+├── tailwind.config.ts                # Tailwind with brand colors
+└── next.config.ts                    # Next.js configuration
 ```
 
-## 🎯 Key Sections
-
-### Home Page
-- **Hero Section** - Main value proposition with CTA buttons
-- **About Section** - Vision and mission
-- **Trust Signals** - Rwanda-specific features
-- **Stats** - Project metrics
-- **Core Values** - What drives us
-- **Services** - 6 service offerings with modals
-- **Client Logos** - Animated showcase
-- **Testimonials** - Client reviews
-- **FAQ** - Common questions
-- **Contact Form** - Lead capture
-
-### Portfolio Page
-- **Project Showcase** - 4 detailed case studies
-- **Results & Impact** - Measurable outcomes
-- **Client Testimonials** - Project-specific feedback
-- **Tech Stack** - Technologies used
-
-## 📧 Email Features
-
-### Contact Form
-- Sends inquiry to admin
-- Field validation
-- Service selection
-- Success/error feedback
-
-### Consultation Booking
-- Admin notification
-- Client confirmation email
-- Date/time preferences
-- Project details capture
-
-### Newsletter
-- Admin notification
-- Welcome email to subscriber
-- HTML email templates
-- Double opt-in ready
-
-## 🎨 Customization
-
-### Brand Colors
-Update in `tailwind.config.ts` and components:
-- Primary: `#F6A019` (Orange)
-- Secondary: `#27B755` (Green)
-- Accent: `#59B9D1` (Light Blue)
-
-### Content
-- Update service details in `WhatWeOffer.tsx`
-- Modify testimonials in `TestimonialsSection.tsx`
-- Edit FAQ in `FAQSection.tsx`
-- Update portfolio projects in `portfolio/page.tsx`
-
-### Contact Information
-- Phone: +250781274642
-- Email: beyondtech@gmail.com
-- Update in: WhatsAppButton, ContactSection, Footer
-
 ## 🚀 Deployment
+
+### Netlify Deployment (Recommended for Free Hosting)
+
+1. **Connect your repository**
+   - Go to [Netlify](https://netlify.com)
+   - Click "Add new site" > "Import an existing project"
+   - Connect your Git repository
+
+2. **Configure build settings**
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+
+3. **Add environment variables**
+   - Go to Site settings > Environment variables
+   - Add: `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
+
+4. **Deploy**
+   - Click "Deploy site"
+   - Your site will be live in minutes!
 
 ### Build for Production
 ```bash
@@ -182,96 +152,60 @@ npm run build
 npm start
 ```
 
-### Vercel Deployment (Recommended)
-```bash
-vercel --prod
-```
+## ⚙️ Configuration
 
-### Environment Variables
-Don't forget to add environment variables in your hosting platform:
-- `NEXT_PUBLIC_GMAIL_USER`
-- `NEXT_PUBLIC_GMAIL_PASS`
+### Update Contact Information
+- Email: `info@altavision.com` (update in Footer, ContactSection)
+- Location: Update in Footer
+- Social media links: Update in Footer
 
-## 📊 Analytics Setup
+### Update Team Data
+Edit team members in `app/components/sections/TeamSection.tsx`
 
-1. Create a Google Analytics 4 property
-2. Get your Measurement ID (format: G-XXXXXXXXXX)
-3. Replace `G-XXXXXXXXXX` in `app/layout.tsx` with your ID
+### Update Product Information
+Edit INKINGI details in `app/components/sections/ProductsSection.tsx`
 
-## 🔧 Configuration Tips
+## 🎨 Customization
 
-### Update Domain
-Replace all instances of `yourdomain.com` in:
-- `app/layout.tsx` (metadata and structured data)
-- Email templates in API routes
+### Brand Colors
+Colors are centralized in `tailwind.config.ts`:
+- Primary: `#063A33` (Deep Teal)
+- Accent: `#D5962B` (Gold)
+- Dark: `#0B2B26` (Dark Green)
+- Background: `#F2F2F2` (Soft Neutral)
 
-### Add Real Images
-Replace placeholder images in `public/images/`:
-- Client logos
-- Project screenshots
-- Team photos
+### Typography
+Using Geist Sans and Geist Mono fonts (optimized by Next.js)
 
-### Optimize Images
-```bash
-# Use tools like:
-- TinyPNG for compression
-- ImageOptim for batch processing
-- Next.js Image component handles optimization
-```
+## 📊 Performance
 
-## 📱 Mobile Testing
-
-Test on various screen sizes:
-- Mobile: 375px - 767px
-- Tablet: 768px - 1023px
-- Desktop: 1024px+
-
-## 🆘 Troubleshooting
-
-### Email not sending
-- Check Gmail credentials in `.env.local`
-- Verify 2FA is enabled
-- Use app-specific password, not regular password
-- Check Gmail "Less secure app access" settings
-
-### Build errors
-```bash
-# Clear cache and reinstall
-rm -rf .next node_modules
-npm install
-npm run dev
-```
-
-## 📈 Performance
-
-- Lighthouse Score: 90+
+- Lighthouse Score Target: 90+
 - Mobile-first design
-- Lazy loading images
-- Optimized bundle size
-- Fast page loads with Next.js
+- Image optimization with Next.js Image
+- Lazy loading
+- Minimal bundle size
+- Fast load times
 
-## 🎯 Future Enhancements
+## 🔒 Security
 
-- [ ] Blog system with MDX
-- [ ] Multi-language support (English, French, Kinyarwanda)
-- [ ] Payment integration
-- [ ] Client dashboard
-- [ ] Project management portal
-- [ ] Live chat integration
-- [ ] Video testimonials
-- [ ] Animated stats counter
+- No sensitive data in client-side code
+- Environment variables for API keys
+- HTTPS enforced (via Netlify)
+- Form validation
+- CORS protection
 
-## 📝 License
+## 📞 Support
 
-© 2025 Beyond Tech. All rights reserved.
+For questions or issues:
+- Email: info@altavision.com
+- Website: [Alta Vision](https://altavision.com)
 
-## 🤝 Support
+## 📄 License
 
-For technical support:
-- Email: beyondtech@gmail.com
-- Phone: +250781274642
-- WhatsApp: +250781274642
+Copyright © 2026 Alta Vision. All rights reserved.
 
 ---
 
-**Made with ❤️ in Rwanda**
+**Built with Next.js 15 + Tailwind CSS v4 + TypeScript + Web3Forms**
+
+*Engineering Your Vision into Reality*

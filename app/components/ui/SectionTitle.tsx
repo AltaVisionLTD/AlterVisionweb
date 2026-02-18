@@ -22,9 +22,16 @@ export default function SectionTitle({
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
     >
-      <h2 className="text-4xl md:text-5xl font-bold text-teal mb-4">
+      <motion.h2 
+        className="text-4xl md:text-5xl font-bold text-teal mb-4 cursor-default"
+        whileHover={{ 
+          scale: 1.02,
+          color: '#D5962B',
+          transition: { duration: 0.3 }
+        }}
+      >
         {children}
-      </h2>
+      </motion.h2>
       {subtitle && (
         <p className="text-lg text-neutral-dark/70 max-w-2xl mx-auto">
           {subtitle}

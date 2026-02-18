@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Container from './ui/Container';
 import { FaLinkedin, FaTwitter, FaGithub, FaEnvelope } from 'react-icons/fa';
 
@@ -25,7 +26,15 @@ export default function Footer() {
       <Container>
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">Alta Vision</h3>
+            <div className="mb-4">
+              <Image
+                src="/images/logoo.jpeg"
+                alt="Alta Vision"
+                width={150}
+                height={60}
+                className="h-16 w-auto"
+              />
+            </div>
             <p className="text-white/80 mb-4">
               Engineering Your Vision into Reality
             </p>

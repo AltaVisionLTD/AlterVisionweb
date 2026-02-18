@@ -1,8 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
-
-const GMAIL_USER = process.env.NEXT_PUBLIC_GMAIL_USER;
-const GMAIL_PASS = process.env.NEXT_PUBLIC_GMAIL_PASS;
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,18 +8,57 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: GMAIL_USER,
-        pass: GMAIL_PASS,
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey) {
+      return NextResponse.json({ error: "Email service not configured" }, { status: 500 });
+    }
+
+    const consultationMessage = `
+📋 CONSULTATION REQUEST
+
+Client Details:
+- Name: ${name}
+- Company: ${company || 'Individual'}
+- Email: ${email}
+- Phone: ${phone}
+
+Service Interested: ${service}
+${preferredDate ? `Preferred Date: ${new Date(preferredDate).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}` : ''}
+${preferredTime ? `Preferred Time: ${preferredTime}` : ''}
+
+${message ? `Additional Information:\n${message}` : ''}
+    `.trim();
+
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name: name,
+        email: email,
+        phone: phone,
+        subject: `Consultation Request: ${service}`,
+        message: consultationMessage,
+      }),
     });
 
-    // Send notification to admin
-    await transporter.sendMail({
-      from: `"Beyond Tech Consultations" <${GMAIL_USER}>`,
-      to: GMAIL_USER,
+    const data = await response.json();
+
+    if (data.success) {
+      return NextResponse.json({ success: true });
+    } else {
+      console.error('Web3Forms error:', data);
+      return NextResponse.json({ error: "Failed to send request" }, { status: 500 });
+    }
+  } catch (error) {
+    console.error('Consultation email error:', error);
+    return NextResponse.json({ error: "Email failed to send" }, { status: 500 });
+  }
+}
+
       subject: `🎯 New Consultation Request: ${service}`,
       html: `
         <!DOCTYPE html>
@@ -98,9 +133,9 @@ export async function POST(req: NextRequest) {
 
     // Send confirmation email to client
     await transporter.sendMail({
-      from: `"Beyond Tech" <${GMAIL_USER}>`,
+      from: `"Alta Vision" <${GMAIL_USER}>`,
       to: email,
-      subject: "Your Free Consultation is Confirmed! - Beyond Tech",
+      subject: "Your Free Consultation is Confirmed! - Alta Vision",
       html: `
         <!DOCTYPE html>
         <html>
@@ -108,10 +143,10 @@ export async function POST(req: NextRequest) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #F6A019; color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
+            .header { background: #063A33; color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
             .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 8px 8px; }
-            .highlight { background: #fff3cd; padding: 15px; border-left: 4px solid #F6A019; margin: 20px 0; }
-            .button { display: inline-block; background: #F6A019; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+            .highlight { background: #fff3cd; padding: 15px; border-left: 4px solid #D5962B; margin: 20px 0; }
+            .button { display: inline-block; background: #D5962B; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
             .footer { text-align: center; margin-top: 20px; color: #666; font-size: 12px; }
           </style>
         </head>
@@ -122,7 +157,7 @@ export async function POST(req: NextRequest) {
             </div>
             <div class="content">
               <p>Dear ${name},</p>
-              <p>Thank you for booking a free 30-minute consultation with Beyond Tech! We're excited to discuss your project and explore how we can help bring your vision to life.</p>
+              <p>Thank you for booking a free 30-minute consultation with Alta Vision! We're excited to discuss your project and explore how we can engineer your vision into reality.</p>
               
               <div class="highlight">
                 <strong>📋 Your Request Summary:</strong><br/>
@@ -142,23 +177,19 @@ export async function POST(req: NextRequest) {
 
               <p><strong>Contact Information:</strong></p>
               <ul>
-                <li>📧 Email: beyondtech@gmail.com</li>
-                <li>📱 Phone: +250781274642</li>
-                <li>📍 Location: Kigali, Rwanda</li>
+                <li>📧 Email: info@altavision.com</li>
+                <li>🌍 Global reach, Africa-based</li>
               </ul>
 
               <p>If you have any questions before the consultation, feel free to reach out!</p>
 
-              <center>
-                <a href="https://wa.me/250781274642" class="button">Chat on WhatsApp</a>
-              </center>
-
               <p>Looking forward to connecting with you!</p>
-              <p><strong>The Beyond Tech Team</strong></p>
+              <p><strong>The Alta Vision Team</strong></p>
+              <p><em>Engineering Your Vision into Reality</em></p>
             </div>
             <div class="footer">
-              <p>Beyond Tech | Kigali, Rwanda</p>
-              <p>&copy; ${new Date().getFullYear()} Beyond Tech. All rights reserved.</p>
+              <p>Alta Vision | Product-Led Software Studio</p>
+              <p>&copy; ${new Date().getFullYear()} Alta Vision. All rights reserved.</p>
             </div>
           </div>
         </body>

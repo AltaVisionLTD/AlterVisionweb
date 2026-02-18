@@ -1,10 +1,10 @@
 {
-  "name": "Beyond Tech",
-  "short_name": "BeyondTech",
+  "name": "Alta Vision",
+  "short_name": "AltaVision",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#F69B19",
+  "theme_color": "#063A33",
   "icons": [
     {
       "src": "/icon-192x192.png",
