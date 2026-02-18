@@ -44,9 +44,9 @@ export default function Navbar() {
             <Image
               src="/images/logoo.jpeg"
               alt="Alta Vision - Engineering Scalable Products"
-              width={240}
-              height={100}
-              className="h-20 w-auto"
+              width={150}
+              height={60}
+              className="h-14 w-auto"
               priority
             />
           </motion.a>
