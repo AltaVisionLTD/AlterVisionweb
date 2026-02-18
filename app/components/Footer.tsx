@@ -74,11 +74,11 @@ export default function Footer() {
               ))}
             </div>
             <a
-              href="mailto:info@altavision.com"
+              href="mailto:didier53053@gmail.com"
               className="flex items-center text-white/80 hover:text-gold transition-colors"
             >
               <FaEnvelope className="mr-2" />
-              info@altavision.com
+              didier53053@gmail.com
             </a>
           </div>
         </div>
