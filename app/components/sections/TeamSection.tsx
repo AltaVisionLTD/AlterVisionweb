@@ -17,6 +17,11 @@ export default function TeamSection() {
       role: 'CTO & Co-Founder',
       image: '/images/team/Didier.jpeg'
     },
+    {
+      name: 'Ismael Murekezi',
+      role: 'Co-Founder, UI/UX & Graphic Designer',
+      image: '/images/team/Ismael.JPG'
+    },
   ];
 
   return (
