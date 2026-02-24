@@ -8,6 +8,13 @@ export default function WhoWeAreSection() {
   return (
     <section id="about" className="py-20 bg-white">
       <Container>
+        {/* Unique Value Proposition Callout */}
+        <div className="max-w-3xl mx-auto mb-12 p-6 rounded-xl bg-gradient-to-br from-gold/20 via-neutral-grey/10 to-teal/10 border-2 border-gold shadow-lg text-center">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gold mb-2">Our Unique Value</h2>
+          <p className="text-lg md:text-xl text-neutral-dark/90 font-medium">
+            We turn ambitious ideas into reliable, scalable digital products—combining deep technical expertise with strategic product thinking for real impact.
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}

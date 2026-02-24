@@ -40,19 +40,19 @@ export default function MissionVisionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-sm uppercase tracking-wider text-gold font-semibold mb-4">
-              Our Foundation
-            </h3>
-            <div className="max-w-4xl mx-auto space-y-8">
+            <div className="max-w-4xl mx-auto p-8 rounded-xl bg-gradient-to-br from-neutral-white via-neutral-grey/10 to-gold/10 border-2 border-gold shadow-lg">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-gold mb-6 tracking-tight">
+                Engineering Impactful Digital Solutions
+              </h3>
               <div>
-                <h4 className="text-2xl font-bold text-teal mb-3">Mission</h4>
-                <p className="text-lg text-neutral-dark/80">
+                <h4 className="text-3xl md:text-4xl font-bold text-teal mb-3">Mission</h4>
+                <p className="text-xl md:text-2xl text-neutral-dark/80 font-medium">
                   To engineer scalable, high-performance software that simplifies complexity and enables meaningful digital growth.
                 </p>
               </div>
-              <div>
-                <h4 className="text-2xl font-bold text-teal mb-3">Vision</h4>
-                <p className="text-lg text-neutral-dark/80">
+              <div className="mt-8">
+                <h4 className="text-3xl md:text-4xl font-bold text-teal mb-3">Vision</h4>
+                <p className="text-xl md:text-2xl text-neutral-dark/80 font-medium">
                   To bridge ambitious ideas and real-world impact.
                 </p>
               </div>
